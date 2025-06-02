@@ -1,6 +1,6 @@
 # js-training
 
-part1
+part1 - changed
 
 key takeaways : 
 
