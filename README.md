@@ -1,4 +1,5 @@
 # js-training
+
 part1 - changed
 
 key takeaways : 
@@ -36,7 +37,7 @@ Keep all environments similar
 Stream logs
 - Just print logs to the screen
 
-- Run tasks separately
+
 
 part 2
 key takeaways :
@@ -74,4 +75,5 @@ key takeaways :
 
 - Summary
    Build small reusable pieces → combine into bigger parts → compose full pages.
+
 
