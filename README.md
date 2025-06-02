@@ -1,8 +1,6 @@
 # js-training
 
-part1 - changed part 2
-
-key takeaways : 
+key takeaways : 12 Factor App
 
 One codebase, many versions
 - Use one project in version control (like Git), but deploy it in many environments (dev, test, production).
@@ -38,31 +36,25 @@ Stream logs
 - Just print logs to the screen
 
 
-
-part 2
-key takeaways :
+key takeaways : Atomic Design
 
 - A methodology for creating design systems by breaking interfaces into smaller, reusable components.
 
 - Five Stages of Atomic Design:
 
-   Atoms:
+Atoms:
      Basic building blocks like buttons, labels, inputs, colors, fonts.
      Example: A button or a text input field.
-
-   Molecules:
+Molecules:
      Groups of atoms working together as a unit.
      Example: A search form made of a text input + button.
-
-   Organisms:
+Organisms:
      Complex components made of groups of molecules and/or atoms.
      Example: A header with logo, navigation menu, and search form.
-
-   Templates:
+Templates:
      Page-level structures that combine organisms to form layouts.
      Example: A page layout showing header, content area, and footer.
-
-   Pages:
+Pages:
      Specific instances of templates with real content.
      Example: The homepage with actual text, images, and data filled in.
 
