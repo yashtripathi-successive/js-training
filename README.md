@@ -1,7 +1,5 @@
 # js-training
-
-key takeaways : 12 Factor App
-
+key takeaways : 12 Factor App 
 One codebase, many versions
 - Use one project in version control (like Git), but deploy it in many environments (dev, test, production).
 
