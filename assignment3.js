@@ -1,40 +1,39 @@
 
 //Q1
 
-const res_sum = (a,b) => {
+const sum = (a,b) => {
     return a+b;
 }
-const res_subtract = (a,b) => {
+const subtract = (a,b) => {
     return a-b;
 }
 
-const res_multiply = (a,b) => {
+const multiply = (a,b) => {
     return a*b;
 }
 
-const res_divide = (a,b) => {
+const divide = (a,b) => {
     return a/b;
-}
-
-
-const calculator = (a,b) => {
-    let res_sum = sum(a,b);
-    console.log(res_sum);
-
-    let res_subtract = res_subtract(a,b);
-    console.log(res_subtract);
-
-    let res_multiply = res_multiply(a,b);
-    console.log(res_multiply);
-
-    let res_divide = res_divide(a,b);
-    console.log(res_divide);
 }
 
 let a = Number(prompt("enter num 1: "));
 let b = Number(prompt("enter num 2: "));
+let op = (prompt("enter operator : "));
 
-calculator(a,b);
+switch(op){
+    case '+': console.log(sum(a,b));
+    break;
+    case '-': console.log(subtract(a,b));
+    break;
+    case '*': console.log(multiply(a,b));
+    break;
+    case '/': console.log(divide(a,b));
+    break;
+    deafult : console.log("error");
+    
+}
+
+
 
 
 //Q2
@@ -217,6 +216,6 @@ const fibonacci = (a,b,n) => {
 
 let a=0;
 let b=1;
-let n=5;
+let n=4;
 let res = fibonacci(a,b,n);
 console.log(res);
