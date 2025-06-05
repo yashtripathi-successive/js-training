@@ -1,3 +1,12 @@
-let arr = [1, 2, 3, 4, 5];
-arr.reverse();
-console.log(arr); 
+const inverse = (arr) => {
+  let inverseArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    inverseArr[arr[i]] = i;
+  }
+  return inverseArr;
+}
+
+let arr = [2, 0, 3, 1];
+let inversed = inverse(arr);
+console.log(inversed); 
+
