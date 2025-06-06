@@ -1,11 +1,13 @@
-let arr = [1,2,1,2,1];
-let seen = new Set();
-
-for(let i=0;i<arr.length-1;i++){
+let seen = new Set()
+let arr = [1,2,3,1,2,3,4,5,1,2]
+let res = "";
+for(let i=0;i< arr.length;i++){
+    
     if(!seen.has(arr[i])){
-        seen.add(arr[i]);
+    seen.add(arr[i]);
     }
     else{
-     console.log(`${arr[i]} has a first index at ${arr.indexOf(arr[i])}`) 
+        res+=i+" ";
     }
 }
+console.log(res);
