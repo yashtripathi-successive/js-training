@@ -131,6 +131,12 @@ for(let i=1;i<=5;i++){
  //        *
 
 const printpattern = (n) => {
+    
+    if (typeof n !== 'number' || isNaN(n) || n <= 0) {
+    console.log("Error");
+    return; 
+  }
+    
 for(let i=1;i<=n;i++){
     let row = "";
     for(let j=1;j<=n-i;j++){
