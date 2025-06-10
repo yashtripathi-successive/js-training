@@ -1,3 +1,5 @@
+//Q10 - Write a program to concatenate an input of array of arrays
+
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
