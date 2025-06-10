@@ -1,3 +1,6 @@
+//Q9 - Write a program to find the last duplicate index in an array
+
+
 let arr = [1,2,1,2,1];
 let seen = new Set();
 
