@@ -1,5 +1,5 @@
 
-//Q1
+//Q1 - Write a program to perform functionality of a calculator (add,sub,multiply,divide)
 
 const sum = (a,b) => {
     return a+b;
@@ -36,7 +36,27 @@ switch(op){
 
 
 
-//Q2
+//Q2 - Write a program to display following output as shown in figure
+
+//  1
+//  2 3
+//  4 5 6
+//  7 8 9 10
+
+//  1
+//  2 2
+//  3 3 3
+//  4 4 4 4
+
+//  1 2 3 4 5
+//  1 2 3 4
+//  1 2 3
+//  1 2
+//  1
+//  1 2
+//  1 2 3
+//  1 2 3 4
+//  1 2 3 4 5
 
 for(let i=5;i>=1;i--){
     let row = "";
@@ -89,7 +109,17 @@ for(let i=1;i<=5;i++){
 }
 
 
-//Q3
+//Q3 - Write a program to display Diamond Pattern
+
+ //         *
+ //       *  *
+ //     *  *  *
+ //    *  *  *  *
+ //  *  *  *  *  *
+ //    *  *  *  *
+ //     *  *  *
+ //      *  *
+ //        *
 
 const printpattern = (n) => {
 for(let i=1;i<=n;i++){
@@ -117,7 +147,9 @@ let n = 5;
 printpattern(n);
 
 
-//Q4 Q5
+//Q4 - Write a program to print all even number first and then all odd numbers
+
+//Q5 - Write a program to print all even number first and then all odd numbers using only one iteration 
 
 let evenArr = [];
 let oddArr = [];
@@ -135,7 +167,7 @@ let mergedArr = evenArr.concat(oddArr);
 console.log(mergedArr);
 
 
-//Q6
+//Q6 - Write a program to display prime numbers from 1 to 50
 
 
 const checkprime = (n)=> {
@@ -158,7 +190,7 @@ let n=50;
 prime(n);
 
 
-//Q7
+//Q7 - Write a program to display the twice of a number starting from 2 and end at 4096 (2, 4, 8, 16, ..... 4096)
 
 let num = 2;
 while(num<=4096){
@@ -166,7 +198,7 @@ while(num<=4096){
     num*=2;
 }
 
-//Q8
+//Q8 - Write a program to dispaly number from 1-20 using all types of loops
 
 const printNumber = (n) => {
 
@@ -203,7 +235,7 @@ printNumber(n);
 
 
 
-//Q9
+//Q9 - Write a program to print fibonaaci series
 
 const fibonacci = (a,b,n) => {
     for(let i=2;i<=n;i++){
