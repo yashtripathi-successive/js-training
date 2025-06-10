@@ -187,38 +187,55 @@ if (!Array.isArray(arr)) {
 //Q6 - Write a program to display prime numbers from 1 to 50
 
 
-const checkprime = (n)=> {
-    if(n<=1) return false;
-    for(let i=2;i<=Math.sqrt(n);i++){
-        if(n%i === 0) return false;
-    }
-    return true;
-}
+const checkprime = (n) => {
+  if (n <= 1) return false;
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
+};
 
-const prime = (n) =>{
-   for(let i =1;i<=n;i++){
-    if(checkprime(i)) console.log("prime number");
-    else console.log("not a prime number")
-   }
-}
+const prime = (n) => {
 
+  if (typeof n !== 'number' || isNaN(n) || n <= 0) {
+    console.log("Error");
+    return; 
+  }
 
-let n=50;
+  for (let i = 1; i <= n; i++) {
+    if (checkprime(i)) console.log(i + " is a prime number");
+    else console.log(i + " is not a prime number");
+  }
+};
+
+let n = 50;
 prime(n);
+
 
 
 //Q7 - Write a program to display the twice of a number starting from 2 and end at 4096 (2, 4, 8, 16, ..... 4096)
 
-let num = 2;
-while(num<=4096){
+let num =  2;
+
+if (typeof num !== 'number' || isNaN(num) || num <= 0) {
+  console.log("Error");
+} 
+else {
+  while (num <= 4096) {
     console.log(num);
-    num*=2;
+    num *= 2;
+  }
 }
 
 //Q8 - Write a program to dispaly number from 1-20 using all types of loops
 
-const printNumber = (n) => {
 
+  const printNumber = (n) => {
+   if (typeof n !== 'number' || isNaN(n) || n <= 0) {
+    console.log("Error");
+    return; 
+  }
+  
 //using for loop
 let resultForLoop = "";
 for(let i=1;i<=n;i++){
@@ -255,6 +272,10 @@ printNumber(n);
 //Q9 - Write a program to print fibonaaci series
 
 const fibonacci = (a,b,n) => {
+    
+    if (typeof a !== 'number' || typeof b !== 'number' || typeof n !== 'number' || isNaN(n) || n < 0 || isNaN(b) || isNaN(a))  {
+    return "error"
+    }
     for(let i=2;i<=n;i++){
         let temp = a+b;
         a=b;
@@ -265,6 +286,6 @@ const fibonacci = (a,b,n) => {
 
 let a=0;
 let b=1;
-let n=4;
+let n=5;
 let res = fibonacci(a,b,n);
 console.log(res);
