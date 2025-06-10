@@ -1,4 +1,4 @@
-//1
+// Q1 - Write a program to give a random output between 1 to 10
 
 const randomnumber = (number) => {
     let random = Math.random() * number + 1;
@@ -9,7 +9,7 @@ let number = Number(prompt("enter number: "));
 randomnumber(number);
 
 
-//2
+//Q2  Write a function to take input(age, name, phone no.) from user and display it 
 
 let age= Number(prompt("enter age: "));
 let name = prompt("enter name: ");
@@ -21,13 +21,14 @@ console.log(age + " " + name + " " + mobileno);
 
 
 
-//3.
+//Q3 - Write a function expression that takes in another function as an argument
+
 
 function sayhello(){
     return "hello";
 }
 
-function saymyname(sayhello){
+let saymyname = function (sayhello){
    sayhello();
    console.log(sayhello() + " "+ "my name is yash");
    
@@ -37,11 +38,11 @@ saymyname(sayhello);
 
 
 
-//4.
+//Q4 - Write a function expression that takes in a number and returns its square.
 
 
 
-function tellsquare(a){
+let tellsquare = function (a){
     console.log(a*a);
 }
 
@@ -49,15 +50,10 @@ let a= prompt("enter number to know its square");
 tellsquare(a);
 
 
-//5.
+//Q - Write a function expression that takes in two numbers and returns their sum..
 
 
-// function sum(a,b){
-//     let res = a+b;
-//     console.log(res);
-// }
-
-function sum(...numbers){
+const sum = function (...numbers){
     
   let total =0;
   for(let x of numbers){
@@ -75,8 +71,10 @@ sum(a,b);
 
 
 
-//6.
-function oddeven(x){
+//Q6 -  Write a function expression that takes in a number and returns true if it's even and false if it's odd.
+
+
+let oddeven = function (x){
       if(x%2==0){
           console.log("even");
       }
@@ -91,7 +89,8 @@ let a= Number(prompt("enter a: "));
 oddeven(a);
 
 
-//7.
+//Q7 - All of the above questions from 3-6 needs to be done with arrow functions also
+
 
 //q3 with arrow approch
 
