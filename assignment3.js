@@ -162,18 +162,26 @@ printpattern(n);
 
 let evenArr = [];
 let oddArr = [];
-let arr = [1,2,3,4,5];
-for(let i=0;i<arr.length;i++){
-    if(arr[i]%2===0){
-        evenArr.push(arr[i]);
+let arr = [1, 2, 3, 4, 5, "hello", null, undefined, 6, 7.5];
+
+if (!Array.isArray(arr)) {
+  console.log("Error: Input must be an array.");
+} else {
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+
+    if (typeof element === 'number' && !isNaN(element)) {
+      if (element % 2 === 0) {
+        evenArr.push(element);
+      } else {
+        oddArr.push(element);
+      }
     }
-    else{
-        oddArr.push(arr[i]);
-    }
+  }
+  let mergedArr = evenArr.concat(oddArr);
+  console.log(mergedArr.join(','));
 }
 
-let mergedArr = evenArr.concat(oddArr);
-console.log(mergedArr);
 
 
 //Q6 - Write a program to display prime numbers from 1 to 50
