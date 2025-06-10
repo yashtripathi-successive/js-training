@@ -1,3 +1,6 @@
+//Q8 - Write a program to remove dupliacte elements from an array
+
+
 let arr = [1,2,1,2,3];
 let seen = new Set();
 
