@@ -62,69 +62,128 @@ validateInput();
 //Q3 - Write a function expression that takes in another function as an argument
 
 
-function sayhello(){
-    return "hello";
+function myCallback(error, result) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log("Result: ", result);
+  }
 }
 
-let saymyname = function (sayhello){
-   sayhello();
-   console.log(sayhello() + " "+ "my name is yash");
+function sum(a, b, callback) {
+  if (isNaN(a) || isNaN(b)) {
+     return callback("Both inputs must be numbers", null);
    
+  }
+  callback(null, a + b);
 }
 
-saymyname(sayhello);
+function subtract(a, b, callback) {
+  if (isNaN(a) || isNaN(b)) {
+    return callback("Both inputs must be numbers", null);
+    
+  }
+  callback(null, a - b);
+}
+
+const num1 = Number(prompt("enter number 1: "));
+const num2 = Number(prompt("enter number 2: "));
+sum(num1, num2, myCallback);
+subtract(num1, num2, myCallback);
+
 
 
 
 //Q4 - Write a function expression that takes in a number and returns its square.
 
 
+function getValidNumber(message) {
+  let number;
 
-let tellsquare = function (a){
-    console.log(a*a);
+  while (true) { 
+    number = Number(prompt(message)); 
+    if (number === null) { 
+      return null; 
+    }
+
+    if (!isNaN(number)) {
+      return number; 
+    }
+    else{
+    message = "Invalid input. Please enter a valid number:"; 
+    }
+  }
 }
 
-let a= prompt("enter number to know its square");
-tellsquare(a);
+const square = function(number) {
+  if (number === null) {
+    return "null value"; 
+      
+  }
+  return number * number;
+};
+
+const validNumber = getValidNumber("Enter a number: ");
+console.log(square(validNumber));
 
 
-//Q - Write a function expression that takes in two numbers and returns their sum..
 
 
-const sum = function (...numbers){
-    
-  let total =0;
-  for(let x of numbers){
-      total+=x;
+//Q5 - Write a function expression that takes in two numbers and returns their sum..
+
+
+const sum = function (...numbers) {
+  let total = 0;
+  for (let x of numbers) {
+    if (typeof x !== 'number' || isNaN(x)) {
+      return "Error: All inputs must be valid numbers.";
+    }
+    total += x;
   }
   console.log(total);
-    
-    
-}
+};
 
 console.log("type numbers to know their sum");
-let a= Number(prompt("enter a: "));
-let b= Number(prompt("enter b : "));
-sum(a,b);
+let a = prompt("enter a: ");
+let b = prompt("enter b : ");
+
+if (isNaN(Number(a)) || isNaN(Number(b))) {
+  console.log("Error: Please enter valid numbers.");
+} else {
+  sum(Number(a), Number(b));
+}
+
 
 
 
 //Q6 -  Write a function expression that takes in a number and returns true if it's even and false if it's odd.
 
 
-let oddeven = function (x){
-      if(x%2==0){
-          console.log("even");
-      }
-      else {
-          console.log("odd");
-      }
+let oddeven = function (x) {
+  if (typeof x !== 'number' || isNaN(x)) {
+    return "Error: Input must be a valid number.";
+  }
+
+  if (x % 2 === 0) {
+    console.log("even");
+  } else {
+    console.log("odd");
+  }
+};
+
+console.log("Type a number to know its odd/even ");
+let a = prompt("Enter a: ");
+
+if (a === null) {
+  console.log("Error."); 
+} else if (a.trim() === "") {
+  console.log("Error: Number cant be empty."); 
+} else if (isNaN(Number(a))) {
+  console.log("Error: Please enter a valid number."); 
+} else {
+  oddeven(Number(a));
 }
 
-console.log("type number to know their odd/even status");
-let a= Number(prompt("enter a: "));
-
-oddeven(a);
 
 
 //Q7 - All of the above questions from 3-6 needs to be done with arrow functions also
@@ -132,62 +191,117 @@ oddeven(a);
 
 //q3 with arrow approch
 
-const sayhello = () => {
-    return "hello";
+function myCallback(error, result) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log("Result: ", result);
+  }
 }
 
-const saymyname = (sayhello) => {
-   sayhello();
-   console.log(sayhello() + " "+ "my name is yash");
+function sum(a, b, callback) {
+  if (isNaN(a) || isNaN(b)) {
+     return callback("Both inputs must be numbers", null);
    
+  }
+  callback(null, a + b);
 }
 
-saymyname(sayhello);
+function subtract(a, b, callback) {
+  if (isNaN(a) || isNaN(b)) {
+    return callback("Both inputs must be numbers", null);
+    
+  }
+  callback(null, a - b);
+}
+
+const num1 = Number(prompt("enter number 1: "));
+const num2 = Number(prompt("enter number 2: "));
+sum(num1, num2, myCallback);
+subtract(num1, num2, myCallback);
 
 
 //q4
 
 
-const tellsquare = (a) => {
-    console.log(a*a);
+function getValidNumber(message) {
+  let number;
+
+  while (true) { 
+    number = Number(prompt(message)); 
+    if (number === null) { 
+      return null; 
+    }
+
+    if (!isNaN(number)) {
+      return number; 
+    }
+    else{
+    message = "Invalid input. Please enter a valid number:"; 
+    }
+  }
 }
 
-let a= prompt("enter number to know its square");
-tellsquare(a);
+const square = function(number) {
+  if (number === null) {
+    return "null value"; 
+      
+  }
+  return number * number;
+};
+
+const validNumber = getValidNumber("Enter a number: ");
+console.log(square(validNumber));
 
 
 //q5.
 
 
-const sum = (...numbers) => {
-    
-  let total =0;
-  for(let x of numbers){
-      total+=x;
+const sum = function (...numbers) {
+  let total = 0;
+  for (let x of numbers) {
+    if (typeof x !== 'number' || isNaN(x)) {
+      return "Error: All inputs must be valid numbers.";
+    }
+    total += x;
   }
   console.log(total);
-    
-    
-}
+};
 
 console.log("type numbers to know their sum");
-let a= Number(prompt("enter a: "));
-let b= Number(prompt("enter b : "));
-sum(a,b);
+let a = prompt("enter a: ");
+let b = prompt("enter b : ");
+
+if (isNaN(Number(a)) || isNaN(Number(b))) {
+  console.log("Error: Please enter valid numbers.");
+} else {
+  sum(Number(a), Number(b));
 
 
 //q6.
 
-const oddeven = (x) => {
-      if(x%2==0){
-          console.log("even");
-      }
-      else {
-          console.log("odd");
-      }
+
+let oddeven = (x) => {
+  if (typeof x !== 'number' || isNaN(x)) {
+    return "Error: Input must be a valid number.";
+  }
+
+  if (x % 2 === 0) {
+    console.log("even");
+  } else {
+    console.log("odd");
+  }
+};
+
+console.log("Type a number to know its odd/even ");
+let a = prompt("Enter a: ");
+
+if (a === null) {
+  console.log("Error."); 
+} else if (a.trim() === "") {
+  console.log("Error: Number cant be empty."); 
+} else if (isNaN(Number(a))) {
+  console.log("Error: Please enter a valid number."); 
+} else {
+  oddeven(Number(a));
 }
-
-console.log("type number to know their odd/even status");
-let a= Number(prompt("enter a: "));
-
-oddeven(a);
