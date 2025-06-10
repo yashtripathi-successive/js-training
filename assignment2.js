@@ -70,7 +70,7 @@ function myCallback(error, result) {
   }
 }
 
-function sum(a, b, callback) {
+const sum = function (a, b, callback) {
   if (isNaN(a) || isNaN(b)) {
      return callback("Both inputs must be numbers", null);
    
@@ -78,7 +78,7 @@ function sum(a, b, callback) {
   callback(null, a + b);
 }
 
-function subtract(a, b, callback) {
+const subtract = function (a, b, callback) {
   if (isNaN(a) || isNaN(b)) {
     return callback("Both inputs must be numbers", null);
     
@@ -165,9 +165,9 @@ let oddeven = function (x) {
   }
 
   if (x % 2 === 0) {
-    console.log("even");
+    return true;
   } else {
-    console.log("odd");
+    return false;
   }
 };
 
@@ -181,7 +181,8 @@ if (a === null) {
 } else if (isNaN(Number(a))) {
   console.log("Error: Please enter a valid number."); 
 } else {
-  oddeven(Number(a));
+  let res = oddeven(Number(a));
+  console.log(res);
 }
 
 
