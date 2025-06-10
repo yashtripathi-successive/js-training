@@ -1,3 +1,6 @@
+
+//Q2 - Write a program to reverse a string ("Hello John" => "olleH nhoJ")
+
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
