@@ -16,12 +16,45 @@ randomnumber(input);
 
 //Q2  Write a function to take input(age, name, phone no.) from user and display it 
 
-let age= Number(prompt("enter age: "));
-let name = prompt("enter name: ");
-let mobileno = Number(prompt("enter mobile number: "));
+function validateInput() {
+ 
+  while (true) {
+    var ageInput = Number(prompt("Enter age between 1 and 100:"));
+    
+    if (!isNaN(ageInput) && ageInput >= 1 && ageInput <= 100) {
+      break;
+    } else {
+      console.log("Invalid age. Please enter a valid number between 1 and 100.");
+    }
+  }
+
+ 
+  while (true) {
+    var name = prompt("Enter name : ");
+    if (name && /^[A-Za-z]+$/.test(name)) {
+      break;
+    } else {
+      console.log("Invalid name. ");
+    }
+  }
+
+ 
+  while (true) {
+   var mobileNumberInput = prompt("Enter valid mobile number : ");
+   
+    if (/^[1-9][0-9]{9}$/.test(mobileNumberInput)) {
+      break;
+    } else {
+      console.log("Invalid mobile number.");
+    }
+  }
+
+  console.log(ageInput + " " + name + " " + mobileNumberInput);
+}
+
+validateInput();
 
 
-console.log(age + " " + name + " " + mobileno);
 
 
 
