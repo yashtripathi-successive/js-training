@@ -1,3 +1,6 @@
+//Q6 - Write a program to find sum of an array
+
+
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
