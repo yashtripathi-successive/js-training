@@ -1,3 +1,5 @@
+//Q1 - Write a program to iterate over object.
+
 const obj = {
     name:"yash",
     age:21
