@@ -1,3 +1,8 @@
+//Q5 - Write a program to convert given string in camel case ("hello john doe" => helloJohnDoe)
+
+
+
+
 const { log } = require('console');
 
 const readline = require('readline').createInterface({
