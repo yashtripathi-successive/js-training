@@ -1,3 +1,5 @@
+//Q13 - Write a program to return inverse of an array
+
 const inverse = (arr) => {
   let inverseArr = [];
   for (let i = 0; i < arr.length; i++) {
