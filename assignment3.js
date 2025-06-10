@@ -19,6 +19,9 @@ const divide = (a,b) => {
 let a = Number(prompt("enter num 1: "));
 let b = Number(prompt("enter num 2: "));
 let op = (prompt("enter operator : "));
+const regex =/^[+\-*/]$/;
+
+if((typeof a == 'number' && !isNaN(a)) && (typeof b == 'number' && !isNaN(b)) && regex.test(op) ){
 
 switch(op){
     case '+': console.log(sum(a,b));
@@ -29,8 +32,14 @@ switch(op){
     break;
     case '/': console.log(divide(a,b));
     break;
-    deafult : console.log("error");
+    default : console.log("error");
     
+}
+
+}
+
+else{
+    console.log('error');
 }
 
 
