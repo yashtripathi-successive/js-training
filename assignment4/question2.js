@@ -7,25 +7,33 @@ const readline = require('readline').createInterface({
 });
 
 readline.question('What is your name: ', (name) => {
-  console.log(`${name}`);
-  let words = name.split('');
-  
-  let ans="";
-  
-  for(let word of words){
-      ans= word +ans;;
-      
+  const trimmed = name.trim();
+
+  if (trimmed.length === 0) {
+    console.log('input cant be empty');
+    readline.close();
+    return;
   }
-  let reverse_name = ans.split(' ');
-  console.log(reverse_name);
-  
-  let finalAns="";
-  const reverse = (reverse_name) => {
-      for(let i=reverse_name.length-1;i>=0;i--){
-          finalAns+=reverse_name[i]+" ";
-      }
-  console.log(finalAns);
+  if (!/^[a-zA-Z\s]+$/.test(trimmed)) {
+    console.log('Input must contain only alphabets ');
+    readline.close();
+    return;
   }
-  reverse(reverse_name);
+
+  let words = trimmed.split(' ');
+  let result = "";
+
+  for (let word of words) {
+    let reversedWord = "";
+    for (let char of word) {
+      reversedWord = char + reversedWord;
+    }
+    result += reversedWord + " ";
+  }
+
+  console.log(result.trim());
+
   readline.close();
 });
+
+ 
