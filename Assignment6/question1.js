@@ -1,3 +1,6 @@
+//Q1 - Create a class BankAccount with properties balance and owner and methods deposit(), withdraw(), and displayBalance().
+
+
 class bankAccount{
 
 constructor(owner,balance){
