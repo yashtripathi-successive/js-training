@@ -1,17 +1,12 @@
 // Q1 - Write a program to give a random output between 1 to 10
 
-const randomnumber = (number) => {
-    if (isNaN(number) || number < 1 || number > 10) {
-        console.log("Invalid input. Please enter a valid number between 1 and 10.");
-        return;
-    }
-
-    let random = Math.floor(Math.random() * number) + 1;
+const randomnumber = () => {
+    
+    let random = Math.floor(Math.random() * 10) + 1;
     console.log("Random number between 1 and 10 :", random);
 }
 
-let input = Number(prompt("Enter a number between 1 and 10:"));
-randomnumber(input);
+randomnumber();
 
 
 //Q2  Write a function to take input(age, name, phone no.) from user and display it 
