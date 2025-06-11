@@ -1,3 +1,7 @@
+//Q1. Write a program to remove duplicate charecters from a string ("Hello Yellow" => "Helo Yw")
+
+
+
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
