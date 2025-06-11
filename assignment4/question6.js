@@ -6,22 +6,37 @@ const readline = require('readline').createInterface({
   output: process.stdout,
 });
 
-readline.question('enter array: ', (input) => {
-  
-  
-    
-    let newarr = input.split(' ').map(str => Number(str.trim()));;
-    
-    let sum = 0;
-    for(let number of newarr){
-        sum+=number;
+function sumDigits(str) {
+  return [...str].reduce((sum, val) => sum+ Number(val), 0);
+}
 
+function sumFromString(input) {
+  const trimmed = input.trim();
+  if (/^\d+$/.test(trimmed)) return sumDigits(trimmed);
+
+  const parts = trimmed.split(/\s+/);
+   for (const s of parts) {
+    if (s === '' || isNaN(s)) return null;
+  }
+
+  return parts.reduce((sum, val) => sum + Number(val), 0);
+}
+
+function askInput() {
+  readline.question('Enter numbers: ', input => {
+    const result = sumFromString(input);
+    if (result === null) {
+      console.log('Invalid input!');
+      askInput();
+    } else {
+      console.log(`Sum is: ${result}`);
+      readline.close();
     }
-    console.log(`${sum}`);
-    
+  });
+}
 
-  readline.close();
-});
+askInput();
+
 
 
 
