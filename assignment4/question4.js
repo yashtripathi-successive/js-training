@@ -1,19 +1,29 @@
 //Q4 - Write a program to convert given string to upperCase OR lowerCase
 
 
-const { log } = require('console');
-
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-readline.question('What is your name: ', (name) => {
-  let capitalName = name.toUpperCase();
-  let smallName = name.toLowerCase();
+function askName() {
+  readline.question('What is your name: ', (name) => {
+    const trimmedName = name.trim();
 
-  console.log(`name in capital is liek : ${capitalName} and name in small is like ${smallName}`);
-  
+    const isValid = /^[A-Za-z\s]+$/.test(trimmedName);
 
-  readline.close();
-});
+    if (!isValid) {
+      console.log('Please enter a valid name ');
+      askName(); 
+    } else {
+      let capitalName = trimmedName.toUpperCase();
+      let smallName = trimmedName.toLowerCase();
+
+      console.log(`Name in capital is like: ${capitalName} and name in small is like: ${smallName}`);
+      readline.close();
+    }
+  });
+}
+
+askName();
+
