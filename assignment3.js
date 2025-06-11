@@ -277,21 +277,25 @@ printNumber(n);
 
 //Q9 - Write a program to print fibonaaci series
 
-const fibonacci = (a,b,n) => {
+const fibonacci = (a,b,n,ans) => {
     
     if (typeof a !== 'number' || typeof b !== 'number' || typeof n !== 'number' || isNaN(n) || n < 0 || isNaN(b) || isNaN(a))  {
     return "error"
     }
+    ans+=a+' ';
+    ans+=b+' ';
     for(let i=2;i<=n;i++){
         let temp = a+b;
+        ans+=temp+" ";
         a=b;
         b=temp;
     }
-    return b;
+    return ans;
 }
 
 let a=0;
 let b=1;
 let n=5;
-let res = fibonacci(a,b,n);
+let ans = '';
+let res = fibonacci(a,b,n,ans);
 console.log(res);
