@@ -3,25 +3,35 @@
 
 
 
-const { log } = require('console');
-
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-readline.question('What is your name: ', (name) => {
-    
-    let ans = "";
-    for(let i=0;i<name.length;i++){
-       if(name[i]==' '){
-        ans+=name[i+1].toUpperCase();
-        i++;
-       }
-       else{
-        ans+=name[i];
-       }
+function askName() {
+  readline.question('What is your name: ', (name) => {
+
+    const trimmedName = name.trim();
+    const isValid = /^[A-Za-z\s]+$/.test(trimmedName);
+
+    if (!isValid || trimmedName.length === 0) {
+      console.log('Please enter a valid string');
+      askName(); 
+    } else {
+      let ans = "";
+      for(let i = 0; i < trimmedName.length; i++) {
+        if(trimmedName[i] == ' ') {
+          ans += trimmedName[i + 1].toUpperCase();
+          i++;
+        } else {
+          ans += trimmedName[i];
+        }
+      }
+      console.log(`${ans}`);
+      readline.close();
     }
-   console.log(`${name} -> ${ans}`);
-   readline.close();
-});
+  });
+}
+
+askName();
+
