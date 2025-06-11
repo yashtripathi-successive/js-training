@@ -1,31 +1,27 @@
-
-//Q1 - Write a program to remove duplicate charecters from a string ("Hello Yellow" => "Helo Yw")
-
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-readline.question('What is your name: ', (name) => {
-  console.log(`Hello, ${name}!`);
-  let words = name.split("");
+readline.question('Enter a string : ', (input) => {
+  const trimmed = input.trim();
 
+  
+  if (!trimmed || !/^[a-zA-Z\s]+$/.test(trimmed)) {
+    console.log('please enter a valid string with letters only ');
+  } else {
+    let seen = new Set();
+    let result = "";
 
-let seen = new Set();
-let finalAns="";
-for(let word of words){
-    let ans = "";
-    for(let i=0;i<word.length;i++){
-        if(!seen.has(word[i])){
-            seen.add(word[i]);
-            ans+=word[i];
-        }
-        
+    for (let char of trimmed) {
+      if (!seen.has(char)) {
+        seen.add(char);
+        result += char;
+      }
     }
-    
-    finalAns+=ans;
-}
-console.log(finalAns);
+
+    console.log(`Result : ${result}`);
+  }
 
   readline.close();
 });
