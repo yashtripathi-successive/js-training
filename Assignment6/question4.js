@@ -3,33 +3,42 @@
 // Additionally, the class should have a method called `averageAge` that takes in an array of `Person` objects and returns the average age of all the people in the array.
 
 
+class Person {
+  constructor(first_name, last_name, age) {
+    if (typeof first_name !== 'string' || first_name.trim() === '') {
+      throw new Error("First name must be a string.");
+    }
+    if (typeof last_name !== 'string' || last_name.trim() === '') {
+      throw new Error("Last name must be string.");
+    }
+    if (typeof age !== 'number' || isNaN(age) || age <= 0) {
+      throw new Error("Age must be a positive number.");
+    }
 
-class Person{
-constructor(first_name,last_name,age){
-this.first_name=first_name;
-this.last_name=last_name;
-this.age=age;
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.age = age;
+  }
+
+  fullName() {
+    console.log(`${this.first_name} ${this.last_name}`);
+  }
+
+  static averageAge(persons) {
+    if (!Array.isArray(persons) || persons.length === 0) {
+      throw new Error("Input must be an array.");
+    }
+
+    const total = persons.reduce((sum, person) => sum + person.age, 0);
+    return total / persons.length;
+  }
 }
 
-fullName(){
-console.log(this.first_name.concat(' ',this.last_name))
-}
-
-
-
-static averageAge(persons){
-const total = persons.reduce((sum,person)=>person.age+sum,0);
-if(persons.length > 0){
-let avgAge = total/persons.length;
-return avgAge;
-}
-}
-
-}
 
 const persons = [
 new Person('aryan','thapak',21),
-new Person('anany','more',41)
+new Person('anany','more',41),
+new Person('yash','yash',41)
 
 ]
 
