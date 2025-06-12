@@ -6,6 +6,11 @@
 class shape{
 
 constructor(height,width){
+
+  if ( typeof height !== 'number' || isNaN(height) || height <= 0 || typeof width !== 'number' || isNaN(width) || width <= 0) {
+      throw new Error("Height and width must be positive numbers.");
+    }
+  
 this.height=height;
 this.width=width;
 }
@@ -33,6 +38,8 @@ return 0.5 * this.height * this.width;
 
 }
 
+
+try{
 const rec = new Rectangle(2,2);
 const tri = new Triangle(2,2);
 
@@ -40,3 +47,7 @@ const res_rec = rec.getArea();
 console.log(res_rec);
 const res_tri = tri.getArea();
 console.log(res_tri);
+}
+catch(err){
+  console.log('error encountered');
+}
