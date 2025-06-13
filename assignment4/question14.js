@@ -1,11 +1,12 @@
 ////Q14 - Write a program to reverse an array
 
+
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-readline.question('enter arr (comma separated numbers): ', (input) => {
+readline.question('enter arr : ', (input) => {
   const trimmed = input.trim();
 
   if (!trimmed) {
@@ -13,17 +14,18 @@ readline.question('enter arr (comma separated numbers): ', (input) => {
     readline.close();
     return;
   }
-
-  let arr = trimmed.split(',').map(val => {
-    const num = Number(val.trim());
-    if (isNaN(num)) {
-      console.log(`invalid number:`);
-      readline.close();
-      process.exit(1);
-    }
-    return num;
-  });
-
+  try{
+  let arr = JSON.parse(trimmed);
+  
+  if(!Array.isArray(arr)){
+      throw new Error('invalid array');
+  } else if( arr.some((ele)=> typeof ele !== 'number') ){
+      throw new Error('invalid array');
+      
+  } else if( arr.some((ele)=> Array.isArray(ele))){
+      throw new Error('invalid array');
+  }
+      
   console.log('Original array:', arr);
 
   const reverse = (arr) => {
@@ -44,5 +46,11 @@ readline.question('enter arr (comma separated numbers): ', (input) => {
 
   reverse(arr);
   console.log('Reversed array:', arr);
-  readline.close();
+  
+}
+catch(error){
+    console.log('error');
+}
+
+readline.close();
 });
