@@ -6,37 +6,41 @@ const readline = require('readline').createInterface({
   output: process.stdout,
 });
 
-function sumDigits(str) {
-  return [...str].reduce((sum, val) => sum+ Number(val), 0);
-}
-
-function sumFromString(input) {
-  const trimmed = input.trim();
-  if (/^\d+$/.test(trimmed)) return sumDigits(trimmed);
-
-  const parts = trimmed.split(/\s+/);
-   for (const s of parts) {
-    if (s === '' || isNaN(s)) return null;
-  }
-
-  return parts.reduce((sum, val) => sum + Number(val), 0);
+function sumDigits(arr) {
+  return [...arr].reduce((sum, val) => sum+ Number(val), 0);
 }
 
 function askInput() {
   readline.question('Enter numbers: ', input => {
-    const result = sumFromString(input);
-    if (result === null) {
-      console.log('Invalid input!');
-      askInput();
-    } else {
+      
+  try{    
+     let arr =JSON.parse(input);
+     if(!Array.isArray(arr)){
+         throw new Error('not an array');
+     }
+     else if(arr.some((ele)=> typeof ele !== 'number')){
+         throw new Error('not an number');
+     }
+     else if(arr.some((ele)=> Array.isArray(ele))){
+         throw new Error('not an 1d array');
+     }
+     else{
+      const result = sumDigits(arr);
+    
       console.log(`Sum is: ${result}`);
       readline.close();
     }
-  });
+     
+  }
+  
+ 
+
+catch(error){
+    console.log('error');
 }
 
+ });
+}
 askInput();
-
-
 
 
