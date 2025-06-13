@@ -15,32 +15,30 @@ readline.question('type array of arrays :', (input) => {
   }
 
   try {
-    let arr = trimmed.split(';').map(row => 
-      row.split(',').map(number => {
-        const num = Number(number.trim());
-        if (isNaN(num)) {
-          throw new Error(`invalid number: `);
-        }
-        return num;
-      })
-    );
+    let arr = JSON.parse(trimmed);
+    if (
+      !Array.isArray(arr) ||
+      arr.some((ele) => Array.isArray(ele)) || 
+      arr.some((ele) => typeof ele !== 'number' || isNaN(ele)) 
+    ) {
+      throw new Error('Input must be a 1D array ');
+    }
 
-    let flatArr = arr.flat();
-    console.log(`[${flatArr}]`);
+    console.log(`[${arr}]`);
     
-    for(let i=0; i < flatArr.length - 1; i++){
-      for(let j=0; j < flatArr.length - 1 - i; j++){
-          if(flatArr[j] > flatArr[j+1]){
-               let temp = flatArr[j];
-               flatArr[j] = flatArr[j+1];
-               flatArr[j+1] = temp;
+    for(let i=0; i < arr.length - 1; i++){
+      for(let j=0; j < arr.length - 1 - i; j++){
+          if(arr[j] > arr[j+1]){
+               let temp = arr[j];
+               arr[j] = arr[j+1];
+               arr[j+1] = temp;
           }
       }
     }
-    console.log(`sorted arr : ${flatArr}`);
+    console.log(`sorted arr : ${arr}`);
 
   } catch (err) {
-    console.log(err.message);
+    console.log('error');
   }
 
   readline.close();
