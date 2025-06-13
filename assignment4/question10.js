@@ -1,6 +1,5 @@
 //Q10. Write a program to concatenate an input of array of arrays
 
-
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -9,31 +8,25 @@ const readline = require('readline').createInterface({
 readline.question('Type an array of arrays : ', (input) => {
   const trimmed = input.trim();
 
-  
   if (!trimmed) {
-    console.log('input cannot be empty.');
+    console.log('Input cannot be empty.');
     readline.close();
     return;
   }
 
   try {
-    
-    const arr = trimmed.split(';').map(row =>
-      row.split(',').map(number => {
-        const num = Number(number.trim());
-        if (isNaN(num)) {
-          throw new Error(`Invalid number:`);
-        }
-        return num;
-      })
-    );
+    const arr = JSON.parse(trimmed);
 
-   
+    if (!Array.isArray(arr) || !arr.every(arr => Array.isArray(arr))) {
+      throw new Error('Input must be an array of arrays.');
+    }
+
     const flatArr = arr.flat();
-    console.log(`concatenated array: [${flatArr.join(', ')}]`);
+    console.log(`Concatenated array: [${flatArr.join(', ')}]`);
   } catch (err) {
-    console.log(err.message);
+    console.log('Invalid input:');
   }
 
   readline.close();
 });
+
