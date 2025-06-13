@@ -2,18 +2,18 @@
 
 
 let seen = new Set();
-const obj = {
-    a:1
-}
-let arr = [1, 2, 3, 1, 3, 4, 5, 1, 2];
+
+let arr = [1, 2, 3, 1,2,3,5,5];
 let res = "";
 
-for (let i = 0; i < arr.length; i++) {
-  if (typeof arr[i] !== "number" || isNaN(arr[i])) {
-    console.log(`Invalid element found`);
-    return;
-  }
-
+if (!Array.isArray(arr)) {
+  console.log("Input is not an array.");
+} else if (arr.length === 0) {
+  console.log("Array is empty.");
+} else if (arr.some(ele => typeof ele !== "number" || isNaN(ele))) {
+  console.log("string found.");
+} else {
+  for (let i = 0; i < arr.length; i++) {
   if (!seen.has(arr[i])) {
     seen.add(arr[i]);
   } else {
@@ -21,5 +21,5 @@ for (let i = 0; i < arr.length; i++) {
   }
 }
 
-console.log(res.trim());
-
+console.log(res);
+}
