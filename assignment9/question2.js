@@ -1,3 +1,5 @@
+//Q2 - Install the lodash package using npm install lodash. and use any of its function
+
 import _ from 'lodash'
 
 const arr = [1, 2, 1, 4,4, 1, 3,5,7];
