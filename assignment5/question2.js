@@ -10,9 +10,7 @@ const isValid = obj.every((item) =>  typeof item === 'object' && item !== null &
 if (isValid) {
      obj.sort((a, b) => a.age - b.age);
 
-     obj.forEach(val => {
-            console.log(`${val.name} -> ${val.age}`);
-        });
+     console.log(obj)
 }
 else{
     console.log('error');
