@@ -2,6 +2,7 @@
 //     The function should handle nested objects and arrays.
 
 
+
 const obj = {
   name: "yash",
   age: 21,
@@ -23,9 +24,10 @@ const isValid = obj && typeof obj === 'object' &&
   typeof obj.country.africa === 'string';
 
 if(isValid){
-const shallowcopy = obj;
+const shallowcopy = {...obj};
 shallowcopy.country.asia = "pakistan";       
 shallowcopy.hobbies[1] = "cricket";  
+
 
 console.log(obj);
 
@@ -42,11 +44,24 @@ console.log(obj);
 
 console.log("Deep copy:");
 console.log(deepcopy);
+
+
+
+
+const deepcopy2 = structuredClone(obj);
+deepcopy2.country.asia = "afghanistan"; 
+deepcopy2.hobbies[1] = "basketball"; 
+
+
+console.log(obj);
+
+console.log("Deep copy 2:");
+console.log(deepcopy2);
 }
+
 else{
     console.log('error found');
 }
-
 
 //shallow copy affects original one 
 //deep copy doesn't affect original one
