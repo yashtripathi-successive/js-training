@@ -2,7 +2,6 @@
 // The class should also have a method called `fullName` that returns the person's full name.
 // Additionally, the class should have a method called `averageAge` that takes in an array of `Person` objects and returns the average age of all the people in the array.
 
-
 class Person {
   constructor(first_name, last_name, age) {
     if (typeof first_name !== 'string' || first_name.trim() === '') {
@@ -12,7 +11,7 @@ class Person {
       throw new Error("Last name must be string.");
     }
     if (typeof age !== 'number' || isNaN(age) || age <= 0) {
-      throw new Error("Age must be a positive number.");
+      throw new Error("Age is Not Correct.");
     }
 
     this.first_name = first_name;
@@ -34,11 +33,11 @@ class Person {
   }
 }
 
-
+try{
 const persons = [
 new Person('aryan','thapak',21),
 new Person('anany','more',41),
-new Person('yash','yash',41)
+new Person('yash','yash',31)
 
 ]
 
@@ -48,3 +47,11 @@ p1.fullName();
 
 const res = Person.averageAge(persons);
 console.log(res);
+}catch(error){
+    console.log(error.message)
+}
+
+
+
+
+
