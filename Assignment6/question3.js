@@ -1,7 +1,7 @@
 
-//Q3.1  - Create a class Person with properties name, age, gender, and interests. 
-// Add a method greeting() that returns a string introducing the person. 
-// Also add a method farewell() that returns a string saying goodbye to the person.
+// Q 3.1 Create a class Person with properties name, age, gender, and interests. Add a method greeting() that returns a string introducing the person. Also add a method farewell() that returns a string saying goodbye to the person.
+// Q 3.2 Create a class Student that inherits from the Person class and has a property studies. Override the greeting() method to include information about what the student is studying.
+// Q 3.3 Create a class Teacher that inherits from the Person class and has a property subjectsTaught. Override the farewell() method to include information about what the teacher teaches.
 
 class Person {
   constructor(name, age, gender, interest) {
@@ -25,11 +25,11 @@ class Person {
   }
 
   greeting() {
-    console.log(`${this.name} is ${this.age} years old, gender: ${this.gender}, interests: ${this.interest.join(', ')}`);
+    console.log(`${this.name} is ${this.age} years old,his gender is: ${this.gender}, and his interests are : ${this.interest.join(', ')}`);
   }
 
   farewell() {
-    console.log(`Goodbye from ${this.name}.`);
+    console.log(`Goodbye ${this.name}.`);
   }
 }
 
@@ -44,11 +44,11 @@ class Student extends Person {
   }
 
   greeting() {
-    console.log(`${this.name} is ${this.age} years old, gender: ${this.gender}, interests: ${this.interest.join(', ')}, and studies: ${this.studies}`);
+    console.log(`${this.name} is ${this.age} years old, his gender is : ${this.gender}, his interests are: ${this.interest.join(', ')}, and he studies: ${this.studies}`);
   }
   
   farewell() {
-    console.log(`Goodbye from ${this.name}.`);
+    console.log(`Goodbye ${this.name}.`);
   }
 }
 
@@ -63,11 +63,11 @@ class Teacher extends Person {
   }
 
   greeting() {
-    console.log(`${this.name} is ${this.age} years old, gender: ${this.gender}, interests: ${this.interest.join(', ')}, and i teaches: ${this.subjectsTaught}`);
+    console.log(`${this.name} is ${this.age} years old,his gender is: ${this.gender}, his interests are: ${this.interest.join(', ')}, and he teaches: ${this.subjectsTaught}`);
   }
 
   farewell() {
-    console.log(`Goodbye from ${this.name}`);
+    console.log(`Goodbye ${this.name}`);
   }
 }
 
