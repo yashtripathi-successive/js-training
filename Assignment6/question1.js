@@ -36,7 +36,7 @@ class BankAccount {
     }
   }
 
-  checkBalance() {
+  displayBalance() {
     console.log(`${this.owner} has balance: ${this.balance}`);
   }
 }
@@ -46,7 +46,7 @@ const p1 = new BankAccount('Yash', 1000);
 p1.deposit(111);       
 p1.withdraw(100);       
 
-p1.checkBalance();   
+p1.displayBalance();   
 }catch(error){
     console.log('error encountered ')
 }
